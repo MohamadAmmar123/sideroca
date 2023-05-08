@@ -1,0 +1,237 @@
+/*
+    Theme Name: Sideroca
+    Author: dfx, MohamadAmmar123, QLYCO
+    Author URI: https://dfx-81.web.app
+    Description: A simple responsive theme with a sidebar as the main navigation
+    Version: 1.0
+*/
+
+:root {
+    --primary: white;
+    --secondary: black;
+    --accent: green;
+    --accent-2: darkgreen;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+a {
+    color: var(--accent);
+}
+
+a:hover {
+    color: var(--accent-2);
+}
+
+html, body {
+    margin: 0px;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100%;
+    background: var(--primary);
+    min-height: 100%;
+}
+
+.sidebar {
+    background-color: var(--secondary);
+    padding: 16px;
+    height: 100%;
+    width: 294px;
+    position: fixed;
+    top: 0px;
+    overflow-x: hidden;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: stretch;
+    z-index: 1000000;
+}
+
+.sidebar h1, .sidebar .foot {
+    color: var(--primary);
+    text-align: end;
+}
+
+.foot {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: stretch;
+}
+
+.foot > * {
+    flex: 1;
+}
+
+.foot > div {
+    margin-bottom: 0px;
+}
+
+.hide-nav {
+    display: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex: 10%;
+    margin-top: 20px;
+}
+
+.header a img {
+    height: 32px;
+    max-height: 100%;
+    max-width: 32px;
+    object-fit: contain;
+}
+
+.title {
+    flex: 2;
+    margin: 0px;
+}
+
+.main {
+    /*margin-left: calc(294px + 8px);
+    padding: 16px;*/
+    height: auto;
+    margin-left: 294px;
+}
+
+.content {
+    padding-inline: 16px;
+}
+
+.wrapper {
+    padding-inline: 16px;
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.top {
+    position: sticky;
+    top: 0px;
+}
+
+.top .toggle-nav {
+    display: none;
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: bold;
+    font-size: 32px;
+    text-align: start;
+}
+
+.nav {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    overflow-y: auto;
+    flex: 100%;
+    margin-block: 8px;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    text-align: end;
+}
+
+.sub-menu {
+    display: none;
+    margin-top: 8px;
+    padding-inline: 8px;
+    padding-inline-end: 16px;
+    margin-block: 8px;
+    border-right: 2px solid var(--primary);
+}
+
+.sub-menu > .menu-item {
+    list-style: none;
+}
+
+.selected > a {
+    margin-bottom: 16px;
+}
+
+.selected > .sub-menu {
+    display: block;
+}
+
+.current-menu-item > a {
+    font-weight: bold;
+}
+
+.menu-item {
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+.menu-item a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 2px solid #0000;
+}
+
+.selected > a, .menu-item > a:hover {
+    border-bottom: 2px solid var(--primary);
+}
+
+.nav::-webkit-scrollbar { 
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .top .toggle-nav {
+        display: block;
+    }
+
+    .wrapper {
+        padding-top: 4px;
+    }
+
+    .sidebar {
+        width: 100%;
+        transform: translate(-100%, 0);
+        z-index: 10000000;
+    }
+
+    .main {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .sidebar.triggered {
+        transition: transform .5s;
+    }
+
+    .sidebar.toggled {
+        transform: translate(0, 0);
+    }
+
+    .header {
+        margin-top: 8px;
+    }
+
+    .hide-nav {
+        display: block;
+        flex: 2;
+        align-self: center;
+        font-size: 24px;
+        margin: 32px;
+        text-decoration: none;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        padding: 8px;
+        border-radius: 100%;
+    }
+}
